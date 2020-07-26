@@ -6,6 +6,9 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -13,13 +16,18 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 public class Orders {
 
 	@Id
+	@NotNull(message = "Order Id should not be null")
 	private Integer orderId;
+	@NotEmpty(message = "Customer name is required")
 	private String customerName;
+	@NotNull(message = "Order Date is required")
 	private Date orderDate;
+	@NotEmpty(message = "Order Id should not be null")
 	private String shippingAddress;
 
 	@JsonInclude()
 	@Transient
+	@NotEmpty(message = "At least one OrderItem is required")
 	private List<OrderItem> orderItem;
 
 	private Double total;

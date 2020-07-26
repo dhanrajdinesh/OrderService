@@ -1,5 +1,7 @@
 package com.orderService.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +27,7 @@ public class OrderServiceController {
 
 	@PostMapping("/order")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void createOrder(@RequestBody Orders order) {
+	public void createOrder(@Valid @RequestBody Orders order) {
 		if (order == null) {
 			return;
 		}
