@@ -1,9 +1,9 @@
 package com.orderService.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.orderService.model.Orders;
 
-public interface OrdersRepository extends CrudRepository<Orders, Integer> {
+public interface OrdersRepository extends JpaRepository<Orders, Integer> {
 
 }

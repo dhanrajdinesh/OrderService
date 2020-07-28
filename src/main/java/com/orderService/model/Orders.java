@@ -6,9 +6,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -27,7 +26,6 @@ public class Orders {
 
 	@JsonInclude()
 	@Transient
-	@NotEmpty(message = "At least one OrderItem is required")
 	private List<OrderItem> orderItem;
 
 	private Double total;
